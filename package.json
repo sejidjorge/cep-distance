@@ -1,6 +1,6 @@
 {
   "name": "cep-distance",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "this cep for verify distance betwwen 2 cep in brasil",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
