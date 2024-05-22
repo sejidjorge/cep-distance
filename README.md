@@ -1,4 +1,4 @@
-cep-distance é um um pacote que calcula a distancia entre 2 ceps Brasileiros em metros ou quilômetros utilizando a (Fórmula de Haversine)[[https://en.wikipedia.org/wiki/Haversine_formula](https://en.wikipedia.org/wiki/Haversine_formula)]
+cep-distance é um um pacote que calcula a distancia entre 2 ceps Brasileiros em metros ou quilômetros utilizando a [Fórmula de Haversine](https://en.wikipedia.org/wiki/Haversine_formula)
 
 ---
 ### Exemplo
