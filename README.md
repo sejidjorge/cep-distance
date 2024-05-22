@@ -1,4 +1,4 @@
-cep-distance é um um pacote que calcula a distancia entre 2 ceps Brasileiros em metros ou kilometros utilizando a (Fórmula de Haversine)[https://en.wikipedia.org/wiki/Haversine_formula]
+cep-distance é um um pacote que calcula a distancia entre 2 ceps Brasileiros em metros ou kilometros utilizando a [Fórmula de Haversine](https://en.wikipedia.org/wiki/Haversine_formula)
 
 ---
 
@@ -37,10 +37,10 @@ Start();
 
 ### Dependencias
 
-(Brasil Api)[https://brasilapi.com.br/]
+[Brasil Api](https://brasilapi.com.br/)
 
-(nominatim)[https://nominatim.openstreetmap.org/]
+[nominatim](https://nominatim.openstreetmap.org/)
 
-(Axios)[https://www.npmjs.com/package/axios]
+[Axios](https://www.npmjs.com/package/axios)
 
 ---
