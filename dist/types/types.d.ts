@@ -8,3 +8,9 @@ export type calcParamsTypes = {
     lon1: number;
     lon2: number;
 };
+export type AddressTypes = {
+    street: string;
+    neighborhood: string;
+    city: string;
+    state: string;
+};

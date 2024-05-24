@@ -1,5 +1,6 @@
 import { calcService } from '../services/calc.service';
 import { HttpsRequest } from '../services/https.service';
+import { AddressTypes } from '../types/types';
 import { getLatLonByAddress } from './address.controler';
 
 export async function getAddressByCepCep(cep: string) {
@@ -9,12 +10,31 @@ export async function getAddressByCepCep(cep: string) {
     });
 }
 
+
+
+export async function getPayload(address: AddressTypes) {
+    const addressParts = [
+        address.street?.replaceAll(' ', '+'),
+        address.neighborhood?.replaceAll(' ', '+'),
+        address.city?.replaceAll(' ', '+'),
+        address.state?.replaceAll(' ', '+'),
+    ].filter(part => part !== undefined);
+
+    if (addressParts.length === 0) {
+        throw new Error('Empty address provided');
+    }
+
+    const encodedAddress = `${addressParts.join('%2C+')}%2C+Brazil`;
+    return encodedAddress;
+}
+
+
 export async function getDistanceCeps(cep1: string, cep2: string, measurement: "" | "M" | "KM") {
     const address1 = await getAddressByCepCep(cep1);
     const address2 = await getAddressByCepCep(cep2);
 
-    const encodeAddress1 = `${address1.street.replaceAll(' ', '+')}%2C+${address1.neighborhood.replaceAll(' ', '+')}%2C+${address1.city.replaceAll(' ', '+')}+-+${address1.state.replaceAll(' ', '+')}%2C+Brazil`;
-    const encodeAddress2 = `${address2.street.replaceAll(' ', '+')}%2C+${address2.neighborhood.replaceAll(' ', '+')}%2C+${address2.city.replaceAll(' ', '+')}+-+${address2.state.replaceAll(' ', '+')}%2C+Brazil`;
+    const encodeAddress1 = await getPayload(address1);
+    const encodeAddress2 = await getPayload(address2);
 
     const latLon1 = await getLatLonByAddress(encodeAddress1);
     const latLon2 = await getLatLonByAddress(encodeAddress2);
